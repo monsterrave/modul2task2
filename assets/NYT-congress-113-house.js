@@ -10895,18 +10895,3 @@ var data =
     }]
 }
 
-console.log(data.results[0].members);
-
-// getting values from the JSON
-var congressmen = data.results[0].members;
-      // creating loop    
-        for (var i = 0; i<congressmen.length;i++) {                   //either middle name or none if no middlename
-            var name =data.results[0].members[i].first_name +" "+ (data.results[0].members[i].middle_name || "") +" "+ data.results[0].members[i].last_name
-            var entry = '<tr><td><a href="data.results[0].members[i].url" target="_blank">'+ name + '</a></td>';
-            entry += '<td>' + data.results[0].members[i].party + '</td>'; //adding to string 
-            entry += '<td>' + data.results[0].members[i].state + '</td>'; //
-            entry += '<td>' + data.results[0].members[i].seniority + '</td>'; //
-            entry += '<td>' + data.results[0].members[i].votes_with_party_pct + " %" +'</td></tr>';
-
-            document.getElementById("house-data").innerHTML += entry;
-        }
