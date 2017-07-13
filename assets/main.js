@@ -25,18 +25,25 @@ for (var i = 0; i < members.length; i++) {
 }
 
 
-$("input.partyFilter").change(function() {
-
-    console.log("clicked");
-            var isChecked = $(this).is(":checked");      /// durch einsetzen der variablen auch einzeiliger code möglich
-            var party = $(this).val(); // "r" "d" or i
-            $('tr.' +party).toggle( isChecked );
+$("input.partyFilter").change(function() {               /* der Selektor input.partyFilter wählt meine Input elemente aus, 
+                                                            nämlich die checkboxen der Klasse partyFilter, durch das event *change* (check/unchecking checkbox)
+                                                            wird die funktion "gecallt"
+                                                            */
+            console.log("clicked");                                 // Testen, ob clicker funktioniert
+            var isChecked = $(this).is(":checked");      
+            var party = $(this).val(); // "R" "D" or "I"            //var party beschreibt, welche Values die inputs.partyFilter annehmen können
+            $('tr.' +party).toggle( isChecked );                /* jquery für erstellung eines neuen tr elements mit dem Value  des inputs.partyfilter,
+                                                                    der getogglet wurde (.toggle( isChecked ))
+                                                                */
         });
+                                                                    /// !!!!!!durch einsetzen der variablen auch 1-zeiliger code möglich
+/*Jetzt verstehe ich nur nicht ganz, warum ich dieses Loopding was ich hier drunter als Comment geschrieben habe:
+                    Muss ich nicht mit jquery ein neues table element dann "bauen" während durch alle Senators geloopt wird, um festzustellen, welche party
+                    und je nachdem wird das passende in neue rows "geschrieben"... heißt das, dass ich durch $('tr.'+party).toggle( isChecked ) in dem Code drüber
+                    automatisch die row inhalte überschreibe?
 
 
-
-
-  /* das war mein lächerlicher Versuch ;) 
+   das war mein lächerlicher Versuch ;) 
   //LOOPING through new array and add matching people to the resulting filtered table
         var $tableBody = $('<tbody></tbody>'); // new html content with jquery
         for (var i = 0; i < membersR.length; i++) { //loop through matches
