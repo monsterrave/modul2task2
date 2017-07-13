@@ -13,7 +13,7 @@ for (var i = 0; i < members.length; i++) { //either middle name or none if no mi
     entry += '<td>' + currentMember.seniority + '</td>'; //
     entry += '<td>' + currentMember.votes_with_party_pct + " %" + '</td></tr>';
 
-    document.getElementById("senate-data").innerHTML += entry;
+    document.getElementById("polititians").innerHTML += entry;
 
 }
 
@@ -32,7 +32,7 @@ var congressmen = data.results[0].members;
             entry += '<td>' + currentCongressmen.seniority + '</td>'; //
             entry += '<td>' + currentCongressmen.votes_with_party_pct + " %" +'</td></tr>';
 
-            document.getElementById("house-data").innerHTML += entry;
+            document.getElementById("polititians").innerHTML += entry;
         }
 
 $("input.partyFilter").change(function() {               /* der Selektor input.partyFilter wählt meine Input elemente aus, 
@@ -66,11 +66,37 @@ $("input.partyFilter").change(function() {               /* der Selektor input.p
 //PARTYFILTER müsste ja eigentlich auch für die Houseseite funktionieren. leider nicht... 
                 Kriege eine Fehlermeldung für Zeile 16, aber da gehts ja um senate-data nicht um die house-data??? 
 
+
 */
 
 
 for (var i = 0; i < members.length; i++) {
-    var state = members[i].state;
-    var liElement = '<option>' + state + '</option>';
+    var currentState = members[i].state;
+    var liElement = '<option>' + currentState + '</option>';
     document.querySelector("#statelist").innerHTML += liElement;
 }
+
+
+//STATEFILTER
+/*
+bei Click auf ein options element (state) in der dropdown liste -> function called
+
+  dann legen wir eine variable fest für var state und holt sich den Value /* 50 Möglichkeiten */ 
+  /*  also: var state = $("select#statelist").val()
+    dann eine variable für das was geclickt wird var isClicked = $(this).is(":checked")
+    und nun erstellt man die zeile mit inhalt $('tr.' +state).toggle( isClicked );   // dann wollen wir mal sehen
+
+    */
+
+
+$("option.stateFilter").change(function() {                
+                                                            
+                                                            
+                                                            
+            console.log("clicked");                                 // Testen, ob clicker funktioniert
+            var isClicked = $(this).is(":checked");      
+            var state = $(this).val(); // 50 Möglichekeiten            //var state beschreibt, welche Values die select.stateFilter annehmen können
+            $('tr.' + state ).toggle( isClicked );                /* jquery für erstellung eines neuen tr elements mit dem Value  des select.stateFilter,
+                                                                    der getogglet wurde (.toggle( isClicked ))
+                                                                */
+        });
