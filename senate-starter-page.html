@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta tag ensures proper rendering and touch zooming, since Bootstrap 3 is mobile-first -->
+    <meta name="viewpoint" content="width=device-width, initial-scal=1" charset="utf-8">
+    <!-- initial zoom level when page loaded -->
+    <link rel="stylesheet" type="text/css" href="assets/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TGIF</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="home-starter-page.html">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="senate-starter-page.html">Senate</a></li>
+                        <li> <a href="house-starter-page.html">House</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <div>
+            <h2>Senators</h2>
+        </div>
+    </header>
+    <div>
+        <p class="container">First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+    </div>
+    <!--Table container-->
+    <div>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="R" class="partyFilter" checked>Republican
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="D" class="partyFilter" checked>Democrat
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="I" class="partyFilter" checked>Independent
+        </label>
+        <aside class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All...
+                <span class="caret"></span></button>
+            <select class="dropdown-menu" id="statelist">
+                <option>
+                    <a href="#"></a>
+                </option>
+                <option>
+                    <a href="#"></a>
+                </option>
+                <option>
+                    <a href="#"></a>
+                </option>
+            </select>
+        </aside>
+    </div>
+    <table id="senate-data" class="table container-fluid">
+        <thead>
+            <tr>
+                <th>Senator</th>
+                <th>Party</th>
+                <th>State</th>
+                <th>Seniority</th>
+                <th>Party Affilication</th>
+            </tr>
+        </thead>
+    </table>
+    <script type="text/javascript" src="assets/NYT-congress-113-senate.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/main.js"></script>
+</body>
+
+</html>
