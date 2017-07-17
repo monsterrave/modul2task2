@@ -46,16 +46,19 @@
             <input type="checkbox" value="I" class="partyFilter" checked>Independent
         </label>
         <aside class="dropdown">
-            <div class = 'form-group'>
-            <label for = 'statelist'>Select State:</label>
-            <select class="form-control stateFilter" id="statelist" onchange="statelist()">
-                <option disabled selected">
-                   States...
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All...
+                <span class="caret"></span></button>
+            <select class="dropdown-menu stateFilter" id="statelist" onchange="statelist()">
+                <option class="stateFilter">
+                    <a href="#"></a>
                 </option>
-                <option class = 'allStates' value = 'all' >All...</option>
-                <option class = 'filteredStates' value = 'currentState' ></option>
+                <option>
+                    <a href="#"></a>
+                </option>
+                <option>
+                    <a href="#"></a>
+                </option>
             </select>
-            </div>
         </aside>
     </div>
     <table id="polititians" class="table container-fluid">
