@@ -19,7 +19,7 @@ for (var i = 0; i < members.length; i++) { //either middle name or none if no mi
 
 console.log(data.results[0].members);
 
-// getting values from the JSON
+/*// getting values from the JSON
 var congressmen = data.results[0].members;
 
 // creating loop    
@@ -33,7 +33,7 @@ for (var i = 0; i < congressmen.length; i++) {
     entry += '<td>' + currentCongressmen.votes_with_party_pct + " %" + '</td></tr>';
 
     document.getElementById("polititians").innerHTML += entry;
-}
+}*/
 
 $("input.partyFilter").change(function() {
     /* der Selektor input.partyFilter wählt meine Input elemente aus, 
@@ -70,14 +70,22 @@ $("input.partyFilter").change(function() {
 
 
 */
-
+var statesArr = [];
 
 for (var i = 0; i < members.length; i++) {
     var currentState = members[i].state;
     console.log(currentState);
-    var liElement = '<option>' + currentState + '</option>';
-    document.querySelector("#statelist").innerHTML += liElement;
+    if (statesArr.indexOf(currentState) == -1) {
+        statesArr.push(currentState);
+    }
 }
+
+statesArr.sort();
+
+statesArr.forEach( function (value ) {
+    var option = '<option>' + value + '</option>';
+    $('#statelist').append(option);
+});
 
 
 //STATEFILTER
@@ -103,16 +111,16 @@ bei Click auf ein options element (state) in der dropdown liste -> function call
 //                                                       der getogglet wurde (.toggle( isClicked ))
 
 //});
-
-function statelist() {
-    var state = $('#statelist').val();  //code gesehen mit var rex = new Regexp () ????
+/*$('option').on('click' , 'option' , statelist);
+var function statelist() {
+    var state = $('.filteredStates').val();  //code gesehen mit var rex = new Regexp () ????
    // if (rex == "/all/") { clearFilter() }
     if (state == "/currentState/") {
         $('option.allStates').hide();
         $('option.filteredStates').filter(function() {
             return state.test($(this).text());
         }).show();
-        $('tr.' + state).toggle();
+        $('option.' + state).toggle();
     } else  {clearFilter ();
     }    
       
@@ -121,4 +129,53 @@ function statelist() {
     function clearFilter() {
         $('#statelist').val('');
         $('.allStates').show();
-    }}
+    }}*/
+
+
+//TASK #3
+// getting the totals for each party /erste Aufgabe
+// -> How many of the members belong to D, R or I? looping through array of members getting the value of party and sort them
+
+//create empty JSON object
+var senate = {
+    "R" : [],
+    "D" : [],
+    "I" : []
+}
+
+$.each(members, function (i, member){
+    senate[member.party].push(member);               //clustered members by party
+})
+
+console.log("democrats",senate["D"].length);
+console.log("republican", senate["R"].length);
+console.log("independents", senate["I"].length);
+
+//zweite Aufgabe get average "Votes for each party" for each party
+
+console.log(senate["I"][0]);
+function getAverageForParty(partyMembers) {
+    var totalPartyVotes = 0;
+    var totalVotes = 0;
+
+    $.each(partyMember, function(i, partyMember) {
+        totalVotes = totalVotes + parseInt(partyMember.total_votes);
+
+        var ownVotes = Math.round(parseInt()partyMember.total_votes) / 100
+    })
+}
+
+
+
+
+//#4
+// gt the bottom 10% of loyalty
+
+function getLeastLoyalPartyMembers(percentage, partyMembers) {
+    partyMembers = partyMembers.sort(function(partyMember1,partyMember2) {
+        return partseFloat(partyMember1.votes_with_party_pct) - parseFloat(partyMember2.votes_with_party_pct)
+    })
+    console.log(partyMembers);  // sorting by percentage
+
+    console.log
+}

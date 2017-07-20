@@ -19,13 +19,27 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
                     <ul class="dropdown-menu">
-                        <li> <a href="senate-starter-page.html">Senate</a></li>
-                        <li> <a href="house-starter-page.html">House</a></li>
+                        <li><a href="senate-starter-page.html">Senate</a></li>
+                        <li><a href="house-starter-page.html">House</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                <ul class="dropdown-menu">
+                    <li><a href="senate-attendance-starter-page.html">Senate</a></li>
+                    <li><a href="house-attendance-starter-page.html">House</a></li>
+                </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="senate-party-loyalty-starter-page.html">Senate</a></li>
+                        <li><a href="house-party-loyalty-starter-page.html">House</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav>  
     <header>
         <div>
             <h2>Senators</h2>
@@ -48,12 +62,12 @@
         <aside class="dropdown">
             <div class = 'form-group'>
             <label for = 'statelist'>Select State:</label>
-            <select class="form-control stateFilter" id="statelist" onchange="statelist()">
+            <select class="form-control stateFilter" onchange="statelist()">
                 <option disabled selected">
                    States...
                 </option>
                 <option class = 'allStates' value = 'all' >All...</option>
-                <option class = 'filteredStates' value = 'currentState' ></option>
+                <option id="statelist" class = 'filteredStates' value = 'currentState' ></option>
             </select>
             </div>
         </aside>
