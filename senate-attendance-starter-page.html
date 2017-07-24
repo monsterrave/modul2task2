@@ -3,7 +3,7 @@
 
 <head>
     <!-- meta tag ensures proper rendering and touch zooming, since Bootstrap 3 is mobile-first -->
-    <meta name="viewpoint" content="width=device-width, initial-scal=1" charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scal=1, shrink-to-fit=no" charset="utf-8">
     <!-- initial zoom level when page loaded -->
     <link rel="stylesheet" type="text/css" href="assets/main.css">
 </head>
@@ -47,8 +47,11 @@
     </header>
     <!--Table container-->
     <div>
-        <p class="container">The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
-        <p class="container">The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+        <div class="container col-md-6">    
+        <p class="container-fluid">The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
+        <p class="container-fluid">The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+        </div>
+        <div class="table-responsive col-md-6">
         <h2>Senate at a glance</h2>
         <table class="table container-fluid">
             <thead>
@@ -61,25 +64,26 @@
             <tbody>
                 <tr>
                     <td>Republican</td>
-                    <td>--</td>
-                    <td>--</td>
+                    <td class ="totalRepublicans"></td>
+                    <td class ="totalRepublicansPercentage"></td>
                 </tr>
                 <tr>
                     <td>Democrat</td>
-                    <td>--</td>
-                    <td>--</td>
+                    <td class="totalDemocrats"></td>
+                    <td class ="totalDemocratsPercentage"></td>
                 </tr>
                 <tr>
                     <td>Independent</td>
-                    <td>--</td>
-                    <td>--</td>
+                    <td class ="totalIndependents"></td>
+                    <td class ="totalIndependentsPercentage"></td>
                 </tr>
             </tbody>
         </table>
+        </div>
         <div class="table-responsive col-md-6">
         <h2>Least Engaged (Bottom 10% Attendance)</h2>
     
-        <table class="table container-fluid" >
+        <table class="table container-fluid"  id="leastEngaged">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -88,51 +92,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
+
             </tbody>
         </table>
         </div>
         <div class="table-responsive col-md-6">
         <h2>Most Engaged (Top 10% Attendance)</h2>
         
-        <table class="table container-fluid">
+        <table class="table container-fluid" id="mostEngaged">
             <thead>
-                <tr>
+                <tr >
                     <th>Name</th>
                     <th>Number of Missed Votes</th>
                     <th>% Missed</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 <tr>
                     <td>--</td>
                     <td>--</td>
@@ -172,6 +147,7 @@
         </table>
         </div>
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
     <script type="text/javascript" src="assets/NYT-congress-113-senate.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

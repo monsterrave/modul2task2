@@ -3,7 +3,7 @@
 
 <head>
     <!-- meta tag ensures proper rendering and touch zooming, since Bootstrap 3 is mobile-first -->
-    <meta name="viewpoint" content="width=device-width, initial-scal=1" charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scal=1, shrink-to-fit=no" charset="utf-8">
     <!-- initial zoom level when page loaded -->
     <link rel="stylesheet" type="text/css" href="assets/main.css">
 </head>
@@ -44,13 +44,15 @@
 
         <header>            
             <div>
+                <h2>Party Loyalty</h2>
             </div>
         </header>
         <!--Table container-->
         <div>
-            <h2>Party Loyalty</h2>
-            <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
-    	    
+            <div class="container col-md-6">
+            <p class="container-fluid">Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
+            </div>
+    	    <div class="table-responsive col-md-6">
             <h2>House of Representatives at a glance</h2>
             <table class="table container-fluid">
                 <thead>
@@ -62,26 +64,26 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Republican</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>Democrat</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>Independent</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
+                    <td>Republican</td>
+                    <td class="totalRepublicans"></td>
+                    <td class="totalRepublicansPercentage"></td>
+                </tr>
+                <tr>
+                    <td>Democrat</td>
+                    <td class="totalDemocrats"></td>
+                    <td class="totalDemocratsPercentage"></td>
+                </tr>
+                <tr>
+                    <td>Independent</td>
+                    <td class="totalIndependents"></td>
+                    <td class="totalIndependentsPercentage"></td>
+                </tr>
                 </tbody>
             </table>
-
+            </div>
             <div class="table-responsive col-md-6">
             <h2>Least Loyal (Bottom 10% of Party)</h2>
-            <table class="table container-fluid">
+            <table class="table container-fluid" id="leastLoyal">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -90,42 +92,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
+                    
                 </tbody>
             </table>
 </div>
 <div class="table-responsive col-md-6">
             <h2>Most Loyal (Top 10% of Party)</h2>
-            <table class="table container-fluid">
+            <table class="table container-fluid" id="mostLoyal">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -134,47 +107,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
+                    
                 </tbody>
             </table>
             </div>
 
     	</div> 
-        <script type="text/javascript" src="assets/NYT-congress-113-senate.js"></script>
+        <script type="text/javascript" src="assets/NYT-congress-113-house.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
