@@ -1,16 +1,62 @@
-/*$(function() {
-var data;
+$(function() {
+//var data  = data.results[0].members;
+//console.log(data);
 
-    $.getJSON( "assets/NYT-congress-113-senate.json", function( data ) {
+
+    /*$.getJSON( "https://nytimes-ubiqum.herokuapp.com/congress/113/senate", function( data ) {
         var members = [];
-
-        $.each( data, function( first_name,middle_name,last_name,party,state,seniority,votes_with_party_pct, value ) {
-        items.push( "<tr>"+"<td>" + first_name + middle_name + last_name + "</td>" + "<td>" + party + "</td>" + "<td>" + state + "</td>" + "<td>" + seniority + "</td>" + "<td>" + votes_with_party_pct + "</td>" + "</tr>");
+        console.log('success', data);
+        $.each( data, function( data ) {
+        members.push( "<tr>"+"<td>" + members.first_name + members.middle_name + members.last_name + "</td>" + "<td>" + members.party + "</td>" + "<td>" + members.state + "</td>" + "<td>" + members.seniority + "</td>" + "<td>" + members.votes_with_party_pct + "</td>" + "</tr>");
+        $("#polititians tbody").append();
     });
 
 });*/
+//body classen setzen if body has got class this codeblock, or this
+if ($('body').hasClass('senate')) {
+  $.ajax({
+    url: "https://nytimes-ubiqum.herokuapp.com/congress/113/senate",
+    dataType: 'json',
+    success: function(data) {
+      console.log( data );
+      var data = data.results[0].members;
+      
+      $.each ( data , function(index,data) {  //each callback function immer mit zwei Parameter index data
+            console.log(data);
+            var members=[];
+            members.push( "<tr>"+"<td>" + data.first_name + (data.middle_name || " ") + data.last_name + "</td>" + "<td>" + data.party + "</td>" + "<td>" + data.state + "</td>" + "<td>" + data.seniority + "</td>" + "<td>" + data.votes_with_party_pct + "</td>" + "</tr>");
+            $("#polititians tbody").append(members);
+      });
+    },
+    error: function() {
+      alert("error");
+    }
+  });        
+}
 
-    console.log(data.results[0].members);
+if ($('body').hasClass('house')) {
+  $.ajax({
+    url: "https://nytimes-ubiqum.herokuapp.com/congress/113/house",
+    dataType: 'json',
+    success: function(data) {
+      console.log( data );
+      var data = data.results[0].members;
+      
+      $.each ( data , function(index,data) {  //each callback function immer mit zwei Parameter index data
+            console.log(data);
+            var members=[];
+            members.push( "<tr>"+"<td>" + data.first_name + (data.middle_name || " ") + data.last_name + "</td>" + "<td>" + data.party + "</td>" + "<td>" + data.state + "</td>" + "<td>" + data.seniority + "</td>" + "<td>" + data.votes_with_party_pct + "</td>" + "</tr>");
+            $("#polititians tbody").append(members);
+      });
+    },
+    error: function() {
+      alert("error");
+    }
+  });        
+}
+
+function buildpage(){
+    /*console.log(data.results[0].members);
 
     // getting values from the JSON
     var members = data.results[0].members;
@@ -33,7 +79,7 @@ var data;
 
          
 
-    }
+    }*/
 
     $("input.partyFilter").change(function() {
         /* der Selektor input.partyFilter wählt meine Input elemente aus, 
@@ -168,17 +214,7 @@ var data;
 
 
 
-    //#4
-    // gt the bottom 10% of loyalty
-
-    function getLeastLoyalPartyMembers(percentage, partyMembers) {
-        partyMembers = partyMembers.sort(function(partyMember1,partyMember2) {
-            return partseFloat(partyMember1.votes_with_party_pct) - parseFloat(partyMember2.votes_with_party_pct)
-        })
-        console.log(partyMembers);  // sorting by percentage
-
-        console.log
-    }*/
+*/ // TASK #3
 
     var totalMembers = { // construct empty arrays
         "R": [],
@@ -258,6 +294,8 @@ var data;
         return getPercentageOfMembers(percentage, members);
     }
 
+
+
     function getPercentageOfMembers(percentage, partyMembers) {
         var partyMembersNeeded = Math.ceil(partyMembers.length * percentage)  //percentage
         var selectedPartyMembers = []
@@ -289,4 +327,6 @@ var data;
         $('#leastLoyal tbody').append(row);
     });
 
-/*});*/
+    }
+
+});
