@@ -1,4 +1,4 @@
 # modul2task2
 
-Javascript
+Javascript/jQuery
 API calls
